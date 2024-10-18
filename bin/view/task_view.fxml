@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="center" xmlns:fx="http://javafx.com/fxml" fx:controller="view.TaskViewController" prefHeight="500">
+
+	<Label text="Filtres" />
+	<ListView fx:id="listCategorieFilter" prefWidth="200" prefHeight="50"/>
+	
+    <HBox>
+	    <RadioButton fx:id="radioButtonDateAsc" mnemonicParsing="false" selected="true" text="Date v">
+	          <toggleGroup>
+	            <ToggleGroup fx:id="optionToggleGroup" />
+	          </toggleGroup>
+	        </RadioButton>
+	    <RadioButton fx:id="radioButtonDateDesc" mnemonicParsing="false" text="Date ^" toggleGroup="$optionToggleGroup"/>
+    </HBox>
+    
+    <HBox>
+		<Button text="Filter" onAction="#filterTask" style="-fx-background-color: green;"/>
+	    <Button text="Clear" onAction="#ClearfilterTask" style="-fx-background-color: orange;"/>
+	</HBox>
+    
+	<HBox>
+	
+		<ListView fx:id="listView" layoutX="0" layoutY="30" prefWidth="600" prefHeight="300"/>
+	
+		<VBox>
+			<Label fx:id="myLabel" text="rien" />
+			
+			<Label text="Task Title:" />
+		    <TextField fx:id="taskTitleField" promptText="Nom de la tâche"/>
+		    
+		    <Label text="Description:" />
+		    <TextField fx:id="taskDescriptionField" promptText="Description de la tâche"/>
+		    
+		    <Label text="Status:" />
+		    <ListView fx:id="listStatus" prefWidth="200" prefHeight="50"/>
+	
+		    <Label text="Date d'échéance:" />
+		    <DatePicker fx:id="datePicker" />
+		    
+		    <Label text="Categories :" />
+		    <ListView fx:id="listCategorie" prefWidth="200" prefHeight="50"/>
+		    
+		    <Button text="Clear" onAction="#clearTask" style="-fx-background-color: orange;"/>
+			<Button text="Update / Create" onAction="#updateOrCreateTask" style="-fx-background-color: green;"/>
+			<Button text="Delete" onAction="#deleteTask" style="-fx-background-color: red;"/>
+		</VBox>
+	</HBox>
+</VBox>
